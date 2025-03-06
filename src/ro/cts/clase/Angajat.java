@@ -5,49 +5,41 @@ import java.util.Arrays;
 public class Angajat extends Aplicant {
 	private String ocupatie;
 	private int salariu;
-	private static final int SUMA_FINANTATA = 100; // Valoare exemplu, se poate modifica
+	private static int sumaFinantata;
 
-	public Angajat(String nume, String prenume, int varsta, int punctaj, int nrProiecte, String[] denumireProiecte, int salariu, String ocupatie) {
-		super(nume, prenume, varsta, punctaj, nrProiecte, denumireProiecte);
+	public String getOcupatie() {
+		return ocupatie;
+	}
+	public void setOcupatie(String ocupatie) {
+		this.ocupatie = ocupatie;
+	}
+	public int getSalariu() {
+		return salariu;
+	}
+	public void setSalariu(int salariu) {
+		this.salariu = salariu;
+	}
+
+	public Angajat(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumire_Proiecte,int salariu,String ocupatie) {
+		super(nume,prenume,varsta,punctaj,nr_proiecte,denumire_Proiecte);
 		this.salariu = salariu;
 		this.ocupatie = ocupatie;
 	}
 
 	public Angajat() {
-		this("", "", 0, 0, 0, new String[]{}, 0, "");
-	}
+		super();
 
-	public String getOcupatie() {
-		return ocupatie;
-	}
-
-	public void setOcupatie(String ocupatie) {
-		this.ocupatie = ocupatie;
-	}
-
-	public int getSalariu() {
-		return salariu;
-	}
-
-	public void setSalariu(int salariu) {
-		this.salariu = salariu;
-	}
-
-	public static int getSumaFinantata() {
-		return SUMA_FINANTATA;
 	}
 
 	@Override
 	public String toString() {
-		return new StringBuilder()
-				.append("Angajat: ")
-				.append(super.toString())
-				.append(", Ocupatie=").append(ocupatie)
-				.append(", Salariu=").append(salariu)
-				.toString();
+		return "Angajat: Nume=" + nume + ", Prenume=" + prenume
+				+ ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte + ", DenumireProiect="
+				+ Arrays.toString(denumireProiect) + "Ocupatie=" + ocupatie + ", salariu=" + salariu;
 	}
 
 	public void afiseazaInformatiiFinantare() {
-		System.out.println("Angajatul " + getNume() + " " + getPrenume() + " primeste " + SUMA_FINANTATA + " Euro/zi in proiect.");
+		System.out.println("Angajatul "+getNume()+" "+getPrenume()+" primeste"+ sumaFinantata +" Euro/zi in proiect.");
 	}
+
 }
